@@ -26,7 +26,8 @@
       <nav>
         <ul>
           <li><a href="{% url 'index'%}">Home</a></li>
-          <li><a href="{% url 'service_list'%}" class="active">Services</a></li>
+          <li><a href="{% url 'service_list'%}">Services</a></li>
+          <li> <a href="{% url 'service_detail' service.slug %}">{{service.title}}</a></li>
         </ul>
       </nav>
     </header>
@@ -36,16 +37,8 @@
       <!-- Main -->
       <section id="main" class="wrapper">
         <div class="inner">
-          <div class="features">
-            {% for service in services %}
-            <a href="{% url 'service_detail' service.slug %}">
-              <section style="width: 100%">
-                <span class="{{service.icon_class}}"></span>
-                <h3>{{service.title}}</h3>
-                <p>{{service.description|truncatechars:100}}</p>
-              </section>
-            </a>
-            {% endfor%}
+          <h1 class="major">{{service.title}}</h1>
+          <p class="image fit">{{service.description}}</p>
           </div>
         </div>
       </section>

@@ -79,12 +79,13 @@ Project - Index {% endblock %} {%block content%}
     </p>
     <div class="features">
       {% for service in featured_services%}
+     <a href="{% url 'service_detail' service.slug %}">
       <section>
-        <span class="icon solid major fa-code"></span>
+        <span class="{{service.icon_class}}"></span>
         <h3>{{service.title}}</h3>
-        <p>{{service.description}}</p>
+        <p>{{service.description|truncatechars:100}}</p>
       </section>
-
+      <a/>
       {%endfor%}
     </div>
     <ul class="actions">
